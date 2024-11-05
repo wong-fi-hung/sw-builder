@@ -26,7 +26,7 @@ jobs:
     - name: generate_configure_script
       run: cd ~/termux-miner; autoreconf -i
     - name: configuring
-      run: cd ~/termux-miner; ./configure --with-crypto --with-curl CC=gcc CXX=g++ CFLAGS="-Ofast -fuse-linker-plugin -ftree-loop-if-convert -march=x86-64+generic -mcpu=x86-64+generic -mtune=generic" CXXFLAGS="$CFLAGS" CPPFLAGS="$CFLAGS -I. -I/usr/local/devs/include" LDFLAGS="-L/usr/local/devs/lib -static" LIBS="-lcurl -lcrypto -lssl"
+      run: cd ~/termux-miner; ./configure --with-crypto=/usr/local/devs --with-curl=/usr/local/devs CC=gcc CXX=g++ CFLAGS="-Ofast -fuse-linker-plugin -ftree-loop-if-convert -march=x86-64+generic -mcpu=x86-64+generic -mtune=generic" CXXFLAGS="$CFLAGS" CPPFLAGS="$CFLAGS -I. -I/usr/local/devs/include" LDFLAGS="-L/usr/local/devs/lib -static" LIBS="-lcurl -lcrypto -lssl"
     - name: Make
       run: make -j4
     - name: strip
