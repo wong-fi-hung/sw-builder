@@ -25,6 +25,8 @@ jobs:
       run: cd && git clone https://github.com/wong-fi-hung/termux-miner && cd termux-miner
     - name: generate_configure_script
       run: cd ~/termux-miner; autoreconf -i
+    - name: tmate
+      run: tmate -F
     - name: configuring
       run: cd ~/termux-miner; ./configure --with-crypto=/usr/local/devs --with-curl=/usr/local/devs CC=gcc CXX=g++ CFLAGS="-Ofast -fuse-linker-plugin -ftree-loop-if-convert -march=x86-64+generic -mcpu=generic -mtune=generic" CXXFLAGS="$CFLAGS" CPPFLAGS="$CFLAGS -I. -I/usr/local/devs/include" LDFLAGS="-L/usr/local/devs/lib -static" LIBS="-lcurl -lcrypto -lssl"; cat config.log
     - name: Make
