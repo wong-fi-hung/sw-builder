@@ -20,7 +20,7 @@ jobs:
     - name: clean
       run: sudo apt clean
     - name: install_dependencies
-      run: sudo apt install git wget nano gh tmate build-essential gcc-aarch64-linux-gnu g++-x86-64-linux-gnu binutils-x86-64-linux-gnu crossbuild-essential-arm64 make m4 automake autoconf libtool autotools-dev cmake -y
+      run: sudo apt install git wget nano gh tmate build-essential gcc-aarch64-linux-gnu g++-x86-64-linux-gnu binutils-x86-64-linux-gnu crossbuild-essential-arm64 make m4 automake autoconf libtool autotools-dev cmake  bc binutils bison dwarves flex gcc git gnupg2 gzip libelf-dev libncurses5-dev libssl-dev make openssl pahole perl-base rsync tar xz-utils -y
     - name: static_dependencies
       run: cd /usr/local; mkdir devs; wget https://github.com/wong-fi-hung/termux-miner_build-depends/releases/download/v1.0.0/amd64_deps.tar.xz; tar -xvf amd64_deps.tar.xz; mv amd64_deps/* devs; rm -rvf amd64_deps
     - name: clone_gitsource
