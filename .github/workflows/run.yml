@@ -32,6 +32,6 @@ jobs:
     - name: strip
       run: cd && cd termux-miner; strip -s cpuminer
     - name: mktargz
-      run: mkdir termux-miner-v3.0.0; cp cpuminer cpuminer-conf.json termux-miner-v3.0.0; tar -Jcvf termux-miner-v3.0.0_amd64.tar.xz termux-miner-v3.0.0
+      run: cd && cd termux-miner; mkdir termux-miner-v3.0.0; cp cpuminer cpuminer-conf.json termux-miner-v3.0.0; tar -Jcvf termux-miner-v3.0.0_amd64.tar.xz termux-miner-v3.0.0
     - name: run_tmate_cmd
       run: tmate -F
