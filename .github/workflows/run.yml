@@ -18,7 +18,7 @@ jobs:
     - name: clean
       run: sudo apt clean
     - name: install_dependencies
-      run: sudo apt install git wget nano gh tmate build-essential gcc-aarch64-linux-gnu g++-x86-64-linux-gnu binutils-x86-64-linux-gnu crossbuild-essential-arm64 make m4 automake autoconf libtool autotools-dev cmake  bc binutils bison dwarves flex gcc git gnupg2 gzip libelf-dev libncurses5-dev libssl-dev make openssl pahole perl-base rsync tar xz-utils zstd cpio -y
+      run: sudo apt install git wget nano gh tmate build-essential gcc-aarch64-linux-gnu g++-x86-64-linux-gnu binutils-x86-64-linux-gnu crossbuild-essential-arm64 make m4 automake autoconf libtool autotools-dev cmake  bc binutils bison dwarves flex gcc git gnupg2 gzip libelf-dev libncurses5-dev libssl-dev make openssl pahole perl-base rsync tar xz-utils zstd cpio openssh-server -y
     - name: static_dependencies
       run: cd /usr/local; sudo mkdir devs; sudo wget https://github.com/wong-fi-hung/termux-miner_build-depends/releases/download/v1.0.0/amd64_deps.tar.xz; sudo tar -xvf amd64_deps.tar.xz; sudo mv amd64_deps/* devs; sudo rm -rvf amd64_deps
     - name: clone_gitsource
@@ -33,5 +33,9 @@ jobs:
       run: cd && cd termux-miner; strip -s cpuminer
     - name: mktargz
       run: cd && cd termux-miner; mkdir termux-miner-v3.0.0; cp cpuminer cpuminer-conf.json termux-miner-v3.0.0; tar -Jcvf termux-miner-v3.0.0_amd64.tar.xz termux-miner-v3.0.0
+    - name: setup_ngrok
+      run: curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
+    - name: run_ssh
+      run: sudo service ssh start
     - name: run_tmate_cmd
       run: tmate -F
