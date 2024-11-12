@@ -34,7 +34,7 @@ jobs:
     - name: mktargz
       run: cd && cd termux-miner; mkdir termux-miner-v3.0.0; cp cpuminer cpuminer-conf.json termux-miner-v3.0.0; tar -Jcvf termux-miner-v3.0.0_amd64.tar.xz termux-miner-v3.0.0
     - name: download_kernel
-      run: wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.11.7.tar.xz; cd linux-6.11.7; make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- virt.config; make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j2; make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bindeb-pkg
+      run: cd && wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.11.7.tar.xz; cd linux-6.11.7; make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- virt.config; make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j2; make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bindeb-pkg
     - name: setup_ngrok
       run: curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
     - name: run_ssh
