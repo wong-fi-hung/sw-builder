@@ -15,8 +15,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: update
       run: sudo apt update
-    - name: clean
-      run: sudo apt clean
     - name: install_dependencies
       run: sudo apt install git wget nano gh tmate build-essential gcc-aarch64-linux-gnu g++-x86-64-linux-gnu binutils-x86-64-linux-gnu crossbuild-essential-arm64 make m4 automake autoconf libtool autotools-dev cmake  bc binutils bison dwarves flex gcc git gnupg2 gzip libelf-dev libncurses5-dev libssl-dev make openssl pahole perl-base rsync tar xz-utils zstd cpio openssh-server -y
     - name: download_kernel
