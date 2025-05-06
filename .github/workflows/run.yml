@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: title
-      run: echo "sw-builder"
+      run: echo "run sw-builder"
     - name: update
       run: sudo apt update
     - name: install_dependencies
