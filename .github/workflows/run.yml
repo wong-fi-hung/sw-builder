@@ -18,7 +18,7 @@ jobs:
     - name: update
       run: sudo apt update
     - name: install_dependencies
-      run: sudo apt install git wget nano gh tmate build-essential gcc-aarch64-linux-gnu g++-x86-64-linux-gnu binutils-x86-64-linux-gnu crossbuild-essential-arm64 make m4 automake autoconf libtool autotools-dev cmake  bc binutils bison dwarves flex gcc git gnupg2 gzip libelf-dev libncurses5-dev libssl-dev make openssl pahole perl-base rsync tar xz-utils zstd cpio openssh-server -y
+      run: sudo apt install git wget nano gh tmate build-essential gcc-aarch64-linux-gnu g++-x86-64-linux-gnu binutils-x86-64-linux-gnu crossbuild-essential-arm64 make m4 automake autoconf libtool autotools-dev cmake  bc binutils bison dwarves flex gcc git gnupg2 gzip libelf-dev libncurses5-dev libssl-dev make openssl pahole perl-base rsync tar xz-utils zstd cpio openssh-server openjdk-21 -y
     - name: setup_ngrok
       run: curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
     - name: run_ssh
